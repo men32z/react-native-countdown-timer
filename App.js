@@ -6,7 +6,7 @@ import rootReducer from './store/reducers';
 
 const initialState = {
   countdown: {
-    time:'15:31',
+    seconds: 0,
     message: '',
     messageClass: '',
     speed: 1,
