@@ -1,8 +1,22 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 10,
+  },
+  text: {
+    paddingTop: 18,
+    fontStyle:'italic',
+    fontFamily: 'sans-serif',
+    fontWeight: 'bold',
+  },
+});
 
 const Message = () => (
-  <Text>More than halfway there!</Text>
+  <View style={styles.container}>
+    <Text style={styles.text}>More than halfway there!</Text>
+  </View>
 );
 
 export default Message;

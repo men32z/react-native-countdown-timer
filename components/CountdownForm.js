@@ -1,20 +1,22 @@
 import React from 'react';
 import {
-  Text, Button, View, TextInput,
+  Text, TouchableHighlight, View, TextInput
 } from 'react-native';
+import styles from './styles/countdownform';
 
 const CountdownForm = () => (
-  <View>
-    <Text>Countdown:</Text>
+  <View style={styles.container}>
+    <Text style={styles.text}>Countdown:</Text>
     <TextInput
+      style={styles.input}
       placeholder="(min)"
     />
-    <Button
+    <TouchableHighlight
+      style={styles.button}
       onPress={() => {
         alert('You tapped the button!');
       }}
-      title="Start"
-    />
+    ><Text style={styles.buttonText}>START</Text></TouchableHighlight>
   </View>
 );
 
