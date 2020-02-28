@@ -1,37 +1,19 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Text, TouchableHighlight } from 'react-native';
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  button: {
-    borderWidth: 2,
-    alignItems: 'center',
-    width: 70,
-    borderColor: '#141414',
-    padding:10,
-    marginLeft:10,
-    color: '#000',
-  },
-  text: {
-    fontWeight: 'bold'
-  },
-});
+import {View, Text, TouchableHighlight } from 'react-native';
+import styles from './styles/speed';
 
 class Speed extends Component {
     render(){
       return (
         <View style={styles.container}>
           <TouchableHighlight
-            style={[styles.button]}
+            style={[styles.button, styles.buttonActive]}
             onPress={() => {
               alert('You tapped the button!');
             }}
           ><Text style={styles.text}>1x</Text></TouchableHighlight>
           <TouchableHighlight
-            style={styles.button}
+            style={[styles.button]}
             onPress={() => {
               alert('You tapped the button!');
             }}

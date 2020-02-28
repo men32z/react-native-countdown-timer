@@ -1,27 +1,25 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import CountdownForm from './components/CountdownForm';
-import Display from './components/Display';
-import Speed from './components/Speed';
-import Message from './components/Message';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {default as AppContainer} from './components/App';
+import rootReducer from './store/reducers';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 3,
-    flexDirection:'column',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const initialState = {
+  countdown: {
+    time:'15:31',
+    message: '',
+    messageClass: '',
+    speed: 1,
+    paused: false,
+  }
+};
+
+const store = createStore(rootReducer, initialState);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <CountdownForm />
-      <Message />
-      <Display />
-      <Speed />
-    </View>
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
   );
 }

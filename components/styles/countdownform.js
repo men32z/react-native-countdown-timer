@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   text: {
     fontWeight: 'bold',
     fontFamily: 'sans-serif',
-    fontSize: '1.1em',
+    fontSize: 20,
     marginRight: 10,
   },
   input: {

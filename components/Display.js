@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import {Text, View, StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -8,15 +9,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   time: {
-    fontSize: '8em',
+    fontSize: 110,
     fontFamily: 'sans-serif',
     fontWeight: 'bold',
   }
 });
 
-const Display = () => (
+const Display = ({time}) => (
   <View style={styles.container}>
-    <Text style={styles.time}>15:31</Text>
+    <Text style={styles.time}>{time}</Text>
     <Icon name="pause-circle-outline" size={55} color="#000"
       onPress={() => {
         alert('You tapped the button!');
@@ -25,4 +26,7 @@ const Display = () => (
   </View>
 );
 // play-circle-outline
-export default Display;
+
+const mapStateToProps = state => ({time: state.countdown.time});
+
+export default connect(mapStateToProps)(Display);
