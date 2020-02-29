@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import styles from './styles/countdownform';
 import {connect} from 'react-redux';
-import {setSeconds, decrease} from '../store/actions';
+import {setSeconds} from '../store/actions';
 
 class CountdownForm extends Component{
   constructor(props){
@@ -13,26 +13,13 @@ class CountdownForm extends Component{
       minutes: '',
     }
     this.handleClick = this.handleClick.bind(this);
-    this.play = this.play.bind(this);
   }
 
   handleClick(){
-    const {setSeconds} = this.props;
+    const {setSeconds, play} = this.props;
     const {minutes} = this.state;
     setSeconds(parseInt(minutes * 60));
-    setTimeout(()=>{this.play();}, 100);
-
-  }
-
-  play(){
-    const {decrease, seconds, speed, paused} = this.props;
-
-    if(seconds > 0 && !paused){
-      setTimeout(()=>{
-        decrease();
-        this.play();
-      }, parseInt(1000 / speed));
-    }
+    setTimeout(()=>{play();}, 1000);
   }
 
   render(){
@@ -57,11 +44,9 @@ class CountdownForm extends Component{
 
 const mapStateToProps = state => ({
   seconds: state.countdown.seconds,
-  speed: state.countdown.speed,
 });
 const mapDispatchToProps = dispatch => ({
   setSeconds: (seconds) => dispatch(setSeconds(seconds)),
-  decrease: () => dispatch(decrease())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CountdownForm);

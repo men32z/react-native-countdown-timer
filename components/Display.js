@@ -23,8 +23,9 @@ class Display extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
   handleClick(){
-    const {pauseToggle} = this.props;
+    const {pauseToggle, play, paused} = this.props;
     pauseToggle();
+    setTimeout(()=>{play();}, 100);
   }
   render(){
     const {time, paused} = this.props;
