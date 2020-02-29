@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -28,6 +29,6 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontFamily: 'sans-serif',
-  }
+  },
 });
 export default styles;

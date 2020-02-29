@@ -9,7 +9,7 @@ export const setSpeed = payload => ({
 });
 
 export const pauseToggle = () => ({
-  type: 'PAUSE_TOGGLE'
+  type: 'PAUSE_TOGGLE',
 });
 
 export const setSeconds = payload => ({
@@ -18,5 +18,5 @@ export const setSeconds = payload => ({
 });
 
 export const decrease = () => ({
-  type: 'DECREASE'
+  type: 'DECREASE',
 });

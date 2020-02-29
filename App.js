@@ -1,7 +1,7 @@
 import React from 'react';
-import {createStore} from 'redux';
-import {Provider} from 'react-redux';
-import {default as AppContainer} from './components/App';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import AppContainer from './components/AppContainer';
 import rootReducer from './store/reducers';
 
 const initialState = {
@@ -12,7 +12,7 @@ const initialState = {
     messageClass: '',
     speed: 1,
     paused: false,
-  }
+  },
 };
 
 const store = createStore(rootReducer, initialState);
