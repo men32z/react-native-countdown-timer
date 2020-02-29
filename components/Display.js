@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'end',
   },
   time: {
     fontSize: 110,
@@ -20,18 +21,47 @@ const styles = StyleSheet.create({
 class Display extends Component {
   constructor(props){
     super(props);
+    this.state = {
+      blinkedText: '',
+      showText: true,
+    }
     this.handleClick = this.handleClick.bind(this);
+    this.blinkText = this.blinkText.bind(this);
   }
   handleClick(){
     const {pauseToggle, play, paused} = this.props;
     pauseToggle();
     setTimeout(()=>{play();}, 100);
   }
+
+  blinkText(){
+    const {time} = this.props;
+      setTimeout(()=>{
+        if(time <= 10 && time !== 0){
+          this.setState({
+            blinkedText: this.state.showText ? '#ff0000' : 'transparent',
+            showText: !this.state.showText
+          });
+        }
+        this.blinkText();
+      }, parseInt(this.state.showText? 50 : 250));
+  }
+
+  componentDidMount(){
+    this.blinkText();
+  }
+
   render(){
-    const {time, paused} = this.props;
+    const {time, paused, startSeconds} = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.time}>{timer.getMinutes(time)}</Text>
+        <Text style={[
+          styles.time,
+          time <= 20 && startSeconds !== 0? {color: "#ff0000"} : {},
+          time <= 10 && time !== 0 ? {color: this.state.blinkedText} : {},
+        ]}>
+          {timer.getMinutes(time)}
+        </Text>
         <Icon name={`${paused ? 'play' : 'pause'}-circle-outline`} size={55} color="#000"
           onPress={this.handleClick}
           />
@@ -41,6 +71,7 @@ class Display extends Component {
 }
 
 const mapStateToProps = state => ({
+  startSeconds: state.countdown.startSeconds,
   time: state.countdown.seconds,
   paused: state.countdown.paused
 });

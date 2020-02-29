@@ -8,6 +8,7 @@ const initialState = {
   countdown: {
     seconds: 0,
     message: '',
+    startSeconds: 0,
     messageClass: '',
     speed: 1,
     paused: false,

@@ -7,7 +7,7 @@ const timeReducer = (state = [], {type, payload}) => {
     case 'PAUSE_TOGGLE':
       return Object.assign({}, state, {paused : !state.paused});
     case 'SET_SECONDS':
-      return Object.assign({}, state, {seconds : payload});
+      return Object.assign({}, state, {seconds : payload, startSeconds: payload});
     case 'DECREASE':
       return Object.assign({}, state, {seconds : state.seconds - 1});
     default:
