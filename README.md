@@ -1,6 +1,6 @@
 # React Native Countdown Timer
 
-> Countdown Timer mobile app was built using React Native with Expo, which is simply a countdown timer where you can add minutes and start, pause, accelerate the countdown. 
+> The Countdown Timer mobile app was built using React Native with Expo. It's simply a countdown timer that allows users to add minutes and then start, pause, or accelerate the countdown.
 
 ## ScreenShoots
 
